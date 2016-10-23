@@ -25,12 +25,12 @@ namespace WidenApiClient
 
         static async Task PerformGet()
         {
-            var authToken = "Bearer molcikas/338e438a5748bf860511741cb3fe3402";
+            var authToken = "YOUR_TOKEN_HERE";
             var assetId = "58891697-4db0-4c8c-a02b-722a9fd6df16";
 
             var client = new HttpClient();
             client.BaseAddress = new Uri("https://api.widencollective.com");
-            client.DefaultRequestHeaders.Add("Authorization", authToken);
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authToken);
 
             HttpResponseMessage response = await client.GetAsync(string.Format("v2/assets/{0}?expand=embeds", assetId));
             var assetWithEmbedsResponse = await response.Content.ReadAsAsync<AssetWithEmbedsResponse>();
